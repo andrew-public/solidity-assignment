@@ -75,4 +75,4 @@ Complete this contract with following specifications for each function
 
 ## Contract Address
 
-PASTE_YOUR_CONTRACT_ADDRESS_HERE
+0x766F48eafa0EdedED306762A3EA561c26F610f3F
