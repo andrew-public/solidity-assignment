@@ -1,0 +1,183 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_breadCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_eggCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_jamCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "enum GroceryShop.GroceryType",
+						"name": "groceryType",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "units",
+						"type": "uint256"
+					}
+				],
+				"name": "Added",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "purchaseId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum GroceryShop.GroceryType",
+						"name": "groceryType",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "units",
+						"type": "uint256"
+					}
+				],
+				"name": "Bought",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum GroceryShop.GroceryType",
+						"name": "_type",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_units",
+						"type": "uint256"
+					}
+				],
+				"name": "add",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum GroceryShop.GroceryType",
+						"name": "_type",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_units",
+						"type": "uint256"
+					}
+				],
+				"name": "buy",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_purchaseId",
+						"type": "uint256"
+					}
+				],
+				"name": "cashRegister",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "enum GroceryShop.GroceryType",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/GroceryShop.sol": "GroceryShop"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"src/GroceryShop.sol": {
+			"keccak256": "0xaf5cec8e7607a68c8aaa27a1676cb1bfe184435ef2182b57726009b8078b22bc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0887bc5768f459dc7e7c4bbc1f60857916c456a840f886622e9263685af7e4fa",
+				"dweb:/ipfs/QmQyR31UGARv1gjarhAx3cPdV9RCkdCQH9scmuUeB1FSEW"
+			]
+		}
+	},
+	"version": 1
+}

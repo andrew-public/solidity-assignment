@@ -43,13 +43,13 @@ contract GroceryShop {
     function buy(GroceryType _type, uint _units) payable public {
         require(msg.value == 0.01 ether);
         if (_type == GroceryType.Bread) {
-            require(_units < breadCount, "Not enough bread to buy");
+            require(_units <= breadCount, "Not enough bread to buy");
             breadCount -= _units;
         } else if (_type == GroceryType.Egg) {
-            require(_units < eggCount, "Not enough eggs to buy");
+            require(_units <= eggCount, "Not enough eggs to buy");
             eggCount -= _units;
         } else if (_type == GroceryType.Jam) {
-            require(_units < jamCount, "Not enough jam to buy");
+            require(_units <= jamCount, "Not enough jam to buy");
             jamCount -= _units;
         }
         purchaseId++;
