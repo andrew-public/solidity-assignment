@@ -14,44 +14,28 @@ contract GroceryShop {
         uint256 count;
     }
 
-    uint256 breadCount;
-    uint256 eggCount;
-    uint256 jamCount;
+    uint256[4] stock;
     uint256 purchaseId;
     address owner;
     mapping(uint => CashRegister) purchased;
 
     constructor(uint256 _breadCount, uint256 _eggCount, uint256 _jamCount) {
-        breadCount = _breadCount;
-        eggCount = _eggCount;
-        jamCount = _jamCount;
+        stock[uint(GroceryType.Bread)] = _breadCount;
+        stock[uint(GroceryType.Jam)] = _jamCount;
+        stock[uint(GroceryType.Egg)] = _eggCount;
         owner = msg.sender;
     }
 
     function add(GroceryType _type, uint _units) public {
         require(msg.sender == owner, "Only owner can call add");
-        if (_type == GroceryType.Bread) {
-            breadCount += _units;
-        } else if (_type == GroceryType.Egg) {
-            eggCount += _units;
-        } else if (_type == GroceryType.Jam) {
-            jamCount += _units;
-        }
+        stock[uint(_type)] += _units;
         emit Added(_type, _units);
     }
 
     function buy(GroceryType _type, uint _units) payable public {
-        require(msg.value == 0.01 ether);
-        if (_type == GroceryType.Bread) {
-            require(_units <= breadCount, "Not enough bread to buy");
-            breadCount -= _units;
-        } else if (_type == GroceryType.Egg) {
-            require(_units <= eggCount, "Not enough eggs to buy");
-            eggCount -= _units;
-        } else if (_type == GroceryType.Jam) {
-            require(_units <= jamCount, "Not enough jam to buy");
-            jamCount -= _units;
-        }
+        uint cost = _units * 0.01 ether;
+        require(msg.value == cost, "Incorrect payment amount");
+        require(_units <= stock[uint(_type)], "Not enough stock");
         purchaseId++;
         purchased[purchaseId] = CashRegister(msg.sender, _type, _units);
 

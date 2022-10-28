@@ -46,11 +46,11 @@ contract GroceryShopTest is Test {
     }
 
     function testFailIfInvalidAmountPassed() public {
-        groceryShop.buy{value: 0.1 ether}(GroceryShop.GroceryType.Bread, 10);
+        groceryShop.buy{value: 0.01 ether}(GroceryShop.GroceryType.Bread, 10);
     }
 
     function testFailIfNotEnoughStock() public {
-        groceryShop.buy{value: 0.01 ether}(GroceryShop.GroceryType.Bread, 20);
+        groceryShop.buy{value: 0.2 ether}(GroceryShop.GroceryType.Bread, 20);
     }
 
     function testExpectEmitBuyEvent() public {
