@@ -50,6 +50,7 @@ contract GroceryShop {
 
     function withdraw() public payable {
         require(msg.sender == owner, "Only owner can call add");
-        payable(address(this)).transfer(address(this).balance);
+        (bool success, ) = msg.sender.call{value: address(this).balance}("");
+        require(success, "Transfer failed.");
     }
 }
