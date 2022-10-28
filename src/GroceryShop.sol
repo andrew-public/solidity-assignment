@@ -44,7 +44,7 @@ contract GroceryShop {
 
     function cashRegister(uint _purchaseId) public view returns (address, GroceryShop.GroceryType, uint256) {
         require(_purchaseId > 0 && _purchaseId <= purchaseId, "Unknown purchaseId");
-        CashRegister storage order = purchased[_purchaseId];
+        CashRegister memory order = purchased[_purchaseId];
         return (order.buyer, order.item, order.count);
     }
 
